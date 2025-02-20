@@ -5,16 +5,17 @@ using Html.EstruturasAuxiliares;
 Div mainDiv = new();
 DataHolderTable data = new() 
 {
-    Headers = Enumerable.Empty<string>().Append("Todo List").Append("Prioridade"),
-    Values = Enumerable.Empty<object []>().
-        Append(new object[2] { "Lavar a louça" , 1}).
-        Append(new object[2] { "Estudar C# e F#", 3}).
-        Append(new object[2] { "Atualizar meu currículo", 3}).
-        Append(new object[2] { "Enviar meu currículo para empresas que me interessam", 3}).
-        Append(new object[2] { "Trabalhar no meu portifólio", 5}),
+    Headers = ["Todo List", "Prioridade"],
+    Values = [
+        ["Lavar a louça" , 1],
+        ["Estudar C# e F#", 3],
+        ["Atualizar meu currículo", 3],
+        ["Enviar meu currículo para empresas que me interessam", 3],
+        ["Trabalhar no meu portfólio", 5],
+    ],
     AutoFormatData = false
 };
 
-OutlookMailBodyTemplate template = new("", mainDiv, Enumerable.Empty<DataHolderTable>().Append(data));
+OutlookMailBodyTemplate template = new("", mainDiv, [data]);
 
 Console.WriteLine(template.Build());
